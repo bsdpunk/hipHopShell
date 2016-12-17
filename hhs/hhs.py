@@ -74,12 +74,6 @@ if os.path.isfile(config_file):
 else:
     username = raw_input("Username:")
     password = getpass.getpass("Password:")
-    #vcenter = raw_input("VCenter Server (ex: company.local):")
-    #sat_url =raw_input("Satellite Server Url (ex: https://redhat/rhn/rpc/api):")
-    #jump =raw_input("Jump Server(IP or DNS):")
-    #linode_api_key = getpass.getpass("Linode-API-Key:")
-    #api_key = linode_api_key
-
     config= {"default":[{"username":username,"password":password}]}
 
     config_file_new = open(config_file, "w")
@@ -101,29 +95,9 @@ def get_sat_key(config):
     #global username
     username = config["default"][0]["username"]
     password = config["default"][0]["password"]
-    #sat_url = config["default"][0]["sat_url"]
-    #vcenter = config["default"][0]["vcenter"]
-    #lkey = config["default"][0]["Linode-API-Key"]
-    #api_key = config["default"][0]["Linode-API-Key"]
     key={}
     key['username']=username
     key['password']=password
-    #key['platform']=ucommands.os_platform()
-    #key['vcenter']=vcenter
-    #key['si']=None
-    #key['Linode-API-Key']=lkey
-    #if sat_url:
-
-        #if platform.python_version() == '2.6.6':
-            #key['client'] = xmlrpclib.Server(sat_url, verbose=0)
-        #else:
-            #key['client'] = xmlrpclib.Server(sat_url, verbose=0,context=ssl._create_unverified_context())
-
-
-        #key['key']=key["client"].auth.login(username, password)
-    #else:
-        #key['client'] = ''
-    #key['jump'] = config["default"][0]["jump"]
     try:
         return(key)
     except KeyError:
