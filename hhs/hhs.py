@@ -34,7 +34,7 @@ prompt_r = 0
 #For tab completion
 COMMANDS = ['quit','clear','rhymes-relate','sounds-like',"rhymes-with",'related-to']
 #For X number of arguements
-#ONE = ['quit','clear']
+ONE = ['boston']
 TWO = ['sounds-like',"rhymes-with",'related-to']
 THREE = ['rhymes-relate']
 #For what class
@@ -190,8 +190,8 @@ def cli():
 
 #            key['si'] = si
 #            l_class = 'vmutils'
-#        else:
-#            l_class = ''
+        else:
+            l_class = ''
 
 
         if len(cli.split(' ')) > 0:
@@ -263,11 +263,6 @@ def cli():
                         result = getattr(l_class, cli)(api_key, si)
                         pprint(result)
                         valid = 1
-                    else:
-                        l_class = eval(l_class)
-                        result = getattr(l_class, cli)(api_key)
-                        pprint(result)
-                        valid = 1
                elif cli in HELPER:
                     if cli == "quit" or cli == "exit":
                         #hfile.write(buff)
@@ -289,13 +284,13 @@ def cli():
                         print(help_menu())
                         valid = 1
                     if cli == "clear":
-                        if ucommands.os_platform() == 'windows':
-                            print(os.system('cls'))
-                            valid = 1
-                        if ucommands.os_platform() == 'nix':
+                       # if ucommands.os_platform() == 'windows':
+                       #     print(os.system('cls'))
+                       #     valid = 1
+                        #if ucommands.os_platform() == 'nix':
                             #pprint(
-                            os.system('clear')
-                            valid = 1
+                        os.system('clear')
+                        valid = 1
                else:
                     print("Invalid Command")
 
