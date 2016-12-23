@@ -39,7 +39,7 @@ TWO = ['sounds-like',"rhymes-with",'related-to']
 THREE = ['rhymes-relate']
 #For what class
 WORDS = ['rhymes-relate','sounds-like',"rhymes-with",'related-to']
-HELPER = ['hidden','?','help',"menus", 'quit', 'exit','clear','ls', 'version', 'qotd']
+HELPER = ['hidden','?','help',"menus", 'quit', 'exit','clear','version' ]
 
 for arg in sys.argv:
     arg_count += 1
@@ -200,12 +200,8 @@ def cli():
                 command,arg_one,arg_two = shlex.split(cli)
                 if command in THREE:
                     command = command.replace("-", "_")
-                    if l_class == 'vmutils':
-                        l_class = eval(l_class)
-                        result = getattr(l_class, command)(api_key, si, arg_one, arg_two)
-                    else:
-                        l_class = eval(l_class)
-                        result = getattr(l_class, command)(api_key, arg_one, arg_two)
+                    l_class = eval(l_class)
+                    result = getattr(l_class, command)(api_key, arg_one, arg_two)
 
                     pprint(result)
                     valid = 1
@@ -214,13 +210,9 @@ def cli():
                 command,arguement = shlex.split(cli)
                 if command in TWO:
                     command = command.replace("-", "_")
-                    if l_class == 'vmutils':
-                        api_key['vmarg'] = arguement
-                        l_class = eval(l_class)
-                        result = getattr(l_class, command)(api_key, si)
-                    else:
-                        l_class = eval(l_class)
-                        result = getattr(l_class, command)(api_key, arguement)
+
+                    l_class = eval(l_class)
+                    result = getattr(l_class, command)(api_key, arguement)
 
                     pprint(result)
                     valid = 1
@@ -232,11 +224,6 @@ def cli():
                if cli in ONE:
                     cli = cli.replace("-", "_")
 
-                    if l_class == 'vmutils':
-                        l_class = eval(l_class)
-                        result = getattr(l_class, cli)(api_key, si)
-                        pprint(result)
-                        valid = 1
                elif cli in HELPER:
                     if cli == "quit" or cli == "exit":
                         #hfile.write(buff)
@@ -247,9 +234,6 @@ def cli():
                         valid = 1
                     if cli == "hidden":
                         print(hidden_menu())
-                        valid = 1
-                    if cli == "ls":
-                        print(ls_menu())
                         valid = 1
                     if cli == "qotd":
                         print(qotd_menu())
