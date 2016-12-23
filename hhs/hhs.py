@@ -72,8 +72,10 @@ if os.path.isfile(config_file):
     config=open(config_file, 'r')
     config=json.load(config)
 else:
-    username = raw_input("Username:")
-    password = getpass.getpass("Password:")
+    #username = raw_input("Username:")
+    username = '' #raw_input("Username:")
+    #password = getpass.getpass("Password:")
+    password = '' #getpass.getpass("Password:")
     config= {"default":[{"username":username,"password":password}]}
 
     config_file_new = open(config_file, "w")

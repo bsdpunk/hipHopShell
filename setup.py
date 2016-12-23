@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='hipHopShell',
-    version='0.04',
+    version='0.06',
     packages=['hhs',],
     #install_requires=install_requires,
     entry_points = { 'console_scripts': [
