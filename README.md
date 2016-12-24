@@ -12,7 +12,7 @@ When Words fail, but the cli calls out to you
 You can do a local install by downloading this repo then running the install:
 
 ```bash
-git clone https://github.com/bsdpunk/trash
+git clone https://github.com/bsdpunk/hipHopShell
 cd trash
 sudo python setup.py install
 ```
