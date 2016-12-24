@@ -13,7 +13,7 @@ You can do a local install by downloading this repo then running the install:
 
 ```bash
 git clone https://github.com/bsdpunk/hipHopShell
-cd trash
+cd hipHopShell
 sudo python setup.py install
 ```
 
